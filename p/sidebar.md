@@ -1,6 +1,6 @@
-# [袂卓工作室](..)
+# [袂卓工作室](.)
 
 > 北主楼16-08室.
 
 - [Projects](?projects/index.md)
-- [About Me](?aboutme.md)
+- [About](?about.md)

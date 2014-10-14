@@ -1,20 +1,29 @@
 (function($) {
-    // $('#sidebar-page').load('/p/sidebar.md',function(data){
-    //     console.log(data);
-    // });
+    // TODO callback support
+    function load(selector,url){
+        $.get(url, function(data) {
+
+            $(selector).html(marked(data));
+        });
+
+    }
 
     function init() {
-        $.get('/MZ-Home/p/sidebar.md', function(data) {
-
-            $('#sidebar-page').html(marked(data));
-        });
-
-        $.get('/MZ-Home/p/home.md', function(data) {
-
-            $('#main-page').html(marked(data));
-        });
+        load('#sidebar-page','/MZ-Home/p/sidebar.md');
+        load('#main-page','/MZ-Home/p/home.md');
     }
 
     init();
 
+    var path = '';
+    if(location.search){
+        console.log(location.search);
+        path = location.search.slice(1,location.search.length);
+        if(path){
+            load('#main-page','/MZ-Home/p/'+path);
+        }
+    }
+
+    console.log(location);
+    
 })(jQuery);
